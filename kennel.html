@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>畜生名单 · Fuck P小将</title>
+    <link rel="stylesheet" href="kennel.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="top">
+        <div class="id">
+          <p class="brand">Fuck P小将</p>
+          <h1>畜生名单</h1>
+        </div>
+        <div class="top-side">
+          <p class="count" id="count">0 / 60</p>
+          <div class="top-actions">
+            <button type="button" class="btn ghost" id="export" hidden>导出 JSON</button>
+            <button type="button" class="btn ghost" id="clear" hidden>清空</button>
+          </div>
+        </div>
+      </header>
+
+      <p class="deck">这些地址的合计持仓会出现在 GMGN 顶栏。占比越高越脏。</p>
+
+      <form id="form" class="composer" autocomplete="off">
+        <label class="field" for="paste">
+          <span>加入</span>
+          <textarea
+            id="paste"
+            rows="4"
+            spellcheck="false"
+            placeholder="一行一个：地址 备注&#10;&#10;也可以直接贴 JSON"
+          ></textarea>
+        </label>
+        <p class="detect" id="detect" hidden></p>
+        <div class="composer-bar">
+          <button type="submit" class="btn primary" id="commit" disabled>加入名单</button>
+          <button type="button" class="btn ghost" id="replace" hidden>换成这些</button>
+        </div>
+      </form>
+
+      <p class="toast" id="toast" role="status" hidden></p>
+
+      <section class="roster" aria-labelledby="roster-title">
+        <div class="roster-head">
+          <h2 id="roster-title">名单</h2>
+        </div>
+        <ul id="list" class="list"></ul>
+        <div class="empty" id="empty">
+          <p>名单是空的。</p>
+          <p>从 GMGN 复制钱包，或把整段 JSON 贴进上面的框。</p>
+        </div>
+      </section>
+    </div>
+
+    <dialog id="copy-fallback" class="sheet">
+      <p class="sheet-title">复制被拦了，手动拷这段</p>
+      <textarea id="copy-text" rows="10" spellcheck="false" readonly></textarea>
+      <form method="dialog">
+        <button type="submit" class="btn primary">好</button>
+      </form>
+    </dialog>
+
+    <script src="kennel.js"></script>
+  </body>
+</html>

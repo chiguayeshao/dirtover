@@ -1,0 +1,12 @@
+.DS_Store
+*.log
+.idea/
+.vscode/
+.env
+.env.*
+*.pem
+*.key
+*.keystore
+id_rsa
+id_ed25519
+.impeccable/
