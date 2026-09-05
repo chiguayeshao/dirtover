@@ -1,10 +1,10 @@
 :root {
-  --bg: oklch(0.968 0.005 250);
+  --bg: oklch(0.972 0.004 250);
   --ink: oklch(0.22 0.025 40);
-  --muted: oklch(0.38 0.02 40);
+  --muted: oklch(0.40 0.02 40);
   --line: oklch(0.88 0.012 40);
   --surface: oklch(0.995 0.002 250);
-  --well: oklch(0.99 0.004 250);
+  --well: oklch(0.99 0.003 250);
   --accent: oklch(0.47 0.13 32);
   --accent-ink: oklch(0.99 0.01 32);
   --accent-soft: oklch(0.94 0.035 32);
@@ -13,7 +13,6 @@
   --focus: oklch(0.47 0.13 32);
   --toast-bg: oklch(0.22 0.025 40);
   --toast-ink: oklch(0.98 0.01 40);
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --z-toast: 20;
   --z-sheet: 40;
 }
@@ -30,16 +29,20 @@ body {
   color: var(--ink);
   font-family: ui-sans-serif, system-ui, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
   font-size: 15px;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 body {
-  padding: 36px 20px 80px;
+  min-height: 100dvh;
 }
 
 .page {
-  width: min(560px, 100%);
+  display: flex;
+  flex-direction: column;
+  width: min(520px, 100%);
+  min-height: 100dvh;
   margin: 0 auto;
+  padding: 28px 20px 20px;
 }
 
 .top {
@@ -49,30 +52,18 @@ body {
   gap: 16px;
 }
 
-.id {
-  min-width: 0;
-}
-
-.brand {
-  margin: 0 0 4px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--muted);
-}
-
 h1 {
   margin: 0;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 650;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  text-wrap: balance;
 }
 
 .top-side {
   display: grid;
   justify-items: end;
-  gap: 6px;
+  gap: 2px;
   flex: 0 0 auto;
 }
 
@@ -86,19 +77,13 @@ h1 {
 
 .top-actions {
   display: flex;
-  gap: 4px;
-}
-
-.deck {
-  margin: 14px 0 0;
-  max-width: 42ch;
-  color: var(--muted);
+  gap: 2px;
 }
 
 .composer {
   display: grid;
-  gap: 10px;
-  margin-top: 28px;
+  gap: 8px;
+  margin-top: 18px;
 }
 
 .field {
@@ -106,9 +91,15 @@ h1 {
   gap: 6px;
 }
 
-.field span {
+.field span,
+h2 {
   font-size: 13px;
-  font-weight: 550;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+h2 {
+  margin: 0;
 }
 
 textarea,
@@ -124,11 +115,11 @@ input[type="text"] {
 }
 
 textarea {
-  min-height: 112px;
+  min-height: 260px;
   resize: vertical;
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 textarea:focus,
@@ -148,7 +139,7 @@ input[type="text"]:focus,
 
 textarea::placeholder,
 .note::placeholder {
-  color: oklch(0.46 0.02 40);
+  color: oklch(0.48 0.02 40);
 }
 
 .detect {
@@ -168,8 +159,13 @@ textarea::placeholder,
 .composer-bar {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+.composer-bar .detect {
+  margin-right: auto;
 }
 
 .btn {
@@ -219,7 +215,8 @@ textarea::placeholder,
 .btn:focus-visible,
 .drop:focus-visible,
 .addr:focus-visible,
-.note:focus-visible {
+.note:focus-visible,
+.chop a:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
@@ -245,18 +242,14 @@ textarea::placeholder,
 }
 
 .roster {
-  margin-top: 32px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-top: 22px;
 }
 
 .roster-head {
-  margin-bottom: 8px;
-}
-
-h2 {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--muted);
+  margin-bottom: 6px;
 }
 
 .list {
@@ -352,16 +345,52 @@ h2 {
 }
 
 .empty {
-  margin: 18px 0 0;
+  display: none;
+}
+
+.chop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 22px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.chop-who {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.chop-who span {
+  font-size: 12px;
+  font-weight: 500;
   color: var(--muted);
 }
 
-.empty p {
-  margin: 0;
+.chop-who:hover span {
+  color: var(--ink);
 }
 
-.empty p + p {
-  margin-top: 4px;
+.chop-go {
+  display: flex;
+  gap: 14px;
+}
+
+.chop-go a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.chop-go a:hover {
+  color: var(--ink);
 }
 
 .sheet {
@@ -394,18 +423,14 @@ h2 {
 }
 
 @media (max-width: 520px) {
-  body {
-    padding: 24px 16px 64px;
+  .page {
+    padding: 20px 16px 16px;
   }
 
-  .top {
-    align-items: flex-start;
+  .chop {
     flex-direction: column;
-  }
-
-  .top-side {
-    width: 100%;
-    justify-items: start;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
 

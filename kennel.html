@@ -3,16 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>畜生名单 · Fuck P小将</title>
+    <title>Fuck P小将</title>
     <link rel="stylesheet" href="kennel.css" />
   </head>
   <body>
     <div class="page">
+      <footer class="chop">
+        <a
+          class="chop-who"
+          href="https://x.com/0x_JBCat"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          吉霸猫
+          <span>0x_JBCat</span>
+        </a>
+        <nav class="chop-go" aria-label="吉霸猫">
+          <a href="https://x.com/0x_JBCat" target="_blank" rel="noopener noreferrer">推特</a>
+          <a href="https://gmgn.ai/r/JBCAT?chain=robinhood" target="_blank" rel="noopener noreferrer">GMGN</a>
+          <a href="https://fomo.family/r/0x_JBCat" target="_blank" rel="noopener noreferrer">FOMO</a>
+        </nav>
+      </footer>
+
       <header class="top">
-        <div class="id">
-          <p class="brand">Fuck P小将</p>
-          <h1>畜生名单</h1>
-        </div>
+        <h1>Fuck P小将</h1>
         <div class="top-side">
           <p class="count" id="count">0 / 60</p>
           <div class="top-actions">
@@ -22,20 +36,18 @@
         </div>
       </header>
 
-      <p class="deck">这些地址的合计持仓会出现在 GMGN 顶栏。占比越高越脏。</p>
-
       <form id="form" class="composer" autocomplete="off">
         <label class="field" for="paste">
-          <span>加入</span>
           <textarea
             id="paste"
-            rows="4"
+            aria-label="地址"
+            rows="14"
             spellcheck="false"
-            placeholder="一行一个：地址 备注&#10;&#10;也可以直接贴 JSON"
+            placeholder="0x1111111111111111111111111111111111111111 p小将01&#10;0x2222222222222222222222222222222222222222 p小将02&#10;0x3333333333333333333333333333333333333333 p小将03&#10;&#10;&#10;&#10;[&#10;  { &quot;address&quot;: &quot;0x1111111111111111111111111111111111111111&quot;, &quot;name&quot;: &quot;p小将01&quot; },&#10;  { &quot;address&quot;: &quot;0x2222222222222222222222222222222222222222&quot;, &quot;name&quot;: &quot;p小将02&quot; },&#10;  { &quot;address&quot;: &quot;0x3333333333333333333333333333333333333333&quot;, &quot;name&quot;: &quot;p小将03&quot; }&#10;]"
           ></textarea>
         </label>
-        <p class="detect" id="detect" hidden></p>
         <div class="composer-bar">
+          <p class="detect" id="detect" hidden></p>
           <button type="submit" class="btn primary" id="commit" disabled>加入名单</button>
           <button type="button" class="btn ghost" id="replace" hidden>换成这些</button>
         </div>
@@ -48,10 +60,7 @@
           <h2 id="roster-title">名单</h2>
         </div>
         <ul id="list" class="list"></ul>
-        <div class="empty" id="empty">
-          <p>名单是空的。</p>
-          <p>从 GMGN 复制钱包，或把整段 JSON 贴进上面的框。</p>
-        </div>
+        <div class="empty" id="empty" hidden></div>
       </section>
     </div>
 

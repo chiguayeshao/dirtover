@@ -107,7 +107,7 @@ function render(rows) {
   $("clear").hidden = rows.length === 0;
   $("export").hidden = rows.length === 0;
   $("export").disabled = rows.length === 0;
-  $("empty").hidden = rows.length > 0;
+  if ($("empty")) $("empty").hidden = true;
   const ul = $("list");
   ul.replaceChildren();
   for (const row of rows) {

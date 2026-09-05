@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fuck P小将",
-  "version": "0.1.12",
+  "version": "0.1.15",
   "description": "在 GMGN 代币 K 线页标注畜生地址持仓脏度。占比越高越脏。非官方。",
   "icons": {
     "16": "icons/icon16.png",
