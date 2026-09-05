@@ -2,7 +2,7 @@
 
 作者：[吉霸猫 @0x_JBCat](https://x.com/0x_JBCat)
 
-Chrome MV3 扩展。在 [GMGN](https://gmgn.ai) 代币 K 线页标注你自己加的畜生地址合计持仓占比。片子挂在 [Holdover](https://github.com/chiguayeshao/holdover) 的 FOMO 占比后面。占比越高越脏。
+Chrome MV3 扩展。在 [GMGN](https://gmgn.ai) 代币 K 线页标注你自己加的畜生地址合计持仓占比。占比越高越脏。
 
 不是 GMGN 官方产品。只读，不下单，不连钱包。名单只存在你自己的浏览器本地。
 
@@ -30,8 +30,16 @@ Chrome / Edge / Brave。
 ```json
 [
   {
-    "address": "0x059fc687835a6575067f2f7c657cf70c32c3e6c4",
-    "name": "给你拿好的CA高胜率"
+    "address": "0x1111111111111111111111111111111111111111",
+    "name": "p小将01"
+  },
+  {
+    "address": "0x2222222222222222222222222222222222222222",
+    "name": "p小将02"
+  },
+  {
+    "address": "0x3333333333333333333333333333333333333333",
+    "name": "p小将03"
   }
 ]
 ```
@@ -49,7 +57,7 @@ JSON 最后多一个逗号也能解析。`name` 写成 `note` 也认。已有地
 
 ### K 线片子
 
-打开 GMGN 任意代币 K 线（`/{chain}/token/{address}`）。Holdover 的 `FOMO` 旁边出现 `畜生 12%`。
+打开 GMGN 任意代币 K 线（`/{chain}/token/{address}`）。顶栏出现 `畜生 12%`。
 
 数字含义：**这个币上，名单地址持仓数量之和 / 总供给**。不是人数，不是关注，不是链上 Top10。
 
@@ -115,8 +123,6 @@ JSON 最后多一个逗号也能解析。`name` 写成 `note` 也认。已有地
 ## 作者
 
 [吉霸猫 @0x_JBCat](https://x.com/0x_JBCat)
-
-同作者还有 [Holdover](https://github.com/chiguayeshao/holdover)、[Tapover](https://github.com/chiguayeshao/tapover)、[Watchover](https://github.com/chiguayeshao/watchover)、[Grokover](https://github.com/chiguayeshao/grokover)。
 
 ## 许可
 
